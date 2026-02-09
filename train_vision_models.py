@@ -30,7 +30,7 @@ warnings.filterwarnings('ignore')
 
 class Config:
     # Dataset settings
-    HF_DATASET_NAME = "YOUR_USERNAME/beaker-volume-dataset"  # REPLACE WITH YOUR DATASET
+    HF_DATASET_NAME = "yusufbukarmaina/Beakers1"  # REPLACE WITH YOUR DATASET
     STREAMING = True  # Enable streaming to avoid OOM
     
     # Model settings
@@ -64,7 +64,7 @@ class Config:
     
     # HuggingFace upload
     UPLOAD_TO_HF = False  # Set to True to upload after training
-    HF_REPO_NAME = "YOUR_USERNAME/beaker-volume-model"  # REPLACE
+    HF_REPO_NAME = "yusufbukarmaina/Beakers1"  # REPLACE
 
 
 # ============================================================================
