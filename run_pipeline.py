@@ -136,11 +136,10 @@ def check_dependencies():
     return all_installed
 
 def check_huggingface_login():
-    """Check if user is logged into HuggingFace (new CLI)"""
+    """Check if user is logged into HuggingFace"""
     print_header("HUGGINGFACE AUTHENTICATION")
 
     try:
-        # New recommended command
         result = subprocess.run(
             "hf auth whoami",
             shell=True,
@@ -150,15 +149,7 @@ def check_huggingface_login():
         )
         print_success(f"Logged in as: {result.stdout.strip()}")
         return True
-    except subprocess.CalledProcessError as e:
-        # Show actual output so you can see why it failed
-        out = (e.stdout or "").strip()
-        err = (e.stderr or "").strip()
-        if out:
-            print_warning(out)
-        if err:
-            print_warning(err)
-
+    except subprocess.CalledProcessError:
         print_warning("Not logged in to HuggingFace")
         print_info("Run: hf auth login")
         return False
