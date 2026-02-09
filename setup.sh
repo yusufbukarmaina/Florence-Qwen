@@ -95,27 +95,6 @@ else
 fi
 
 # ============================================================================
-# STEP 6: Configuration
-# ============================================================================
-
-echo ""
-echo "⚙️  STEP 6/6: Configuration..."
-echo ""
-echo "Please update the following in train_vision_models.py:"
-echo ""
-echo "1. Line ~25: HF_DATASET_NAME = 'YOUR_USERNAME/beaker-volume-dataset'"
-echo "   Replace with your actual HuggingFace dataset name"
-echo ""
-echo "2. Line ~49: HF_REPO_NAME = 'YOUR_USERNAME/beaker-volume-model'"
-echo "   Replace with your desired model repository name"
-echo ""
-echo "3. Line ~47: UPLOAD_TO_HF = False"
-echo "   Set to True if you want to upload models after training"
-echo ""
-
-read -p "Press Enter once you've updated the configuration..."
-
-# ============================================================================
 # ALL DONE!
 # ============================================================================
 
