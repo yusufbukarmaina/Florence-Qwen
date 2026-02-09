@@ -63,7 +63,7 @@ class Config:
     LOGGING_STEPS = 100
     
     # HuggingFace upload
-    UPLOAD_TO_HF = False  # Set to True to upload after training
+    UPLOAD_TO_HF = True  # Set to True to upload after training
     HF_REPO_NAME = "yusufbukarmaina/Beakers1"  # REPLACE
 
 
