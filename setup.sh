@@ -68,18 +68,31 @@ if torch.cuda.is_available():
 EOF
 
 # ============================================================================
-# STEP 5: HuggingFace Login
+# STEP 5/6: HuggingFace Login (non-interactive)
 # ============================================================================
 
 echo ""
 echo "🔐 STEP 5/6: HuggingFace Authentication..."
 echo ""
-echo "You need to login to HuggingFace to access models and upload results."
-echo "Get your token from: https://huggingface.co/settings/tokens"
-echo ""
 
-# Login to HuggingFace
-huggingface-cli login
+# Check if already logged in
+if hf auth whoami >/dev/null 2>&1; then
+  echo "✅ Already logged in to Hugging Face."
+else
+  if [ -n "$HF_TOKEN" ]; then
+    echo "Logging in using HF_TOKEN env var..."
+    hf auth login --token "$HF_TOKEN" --add-to-git-credential
+    echo "✅ Logged in."
+  else
+    echo "⚠️ HF_TOKEN not set."
+    echo "Run: export HF_TOKEN='hf_...'"
+    echo "Or you will be prompted now."
+    read -s -p "Enter your Hugging Face token (hidden): " HF_TOKEN
+    echo ""
+    hf auth login --token "$HF_TOKEN" --add-to-git-credential
+    echo "✅ Logged in."
+  fi
+fi
 
 # ============================================================================
 # STEP 6: Configuration
