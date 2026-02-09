@@ -30,7 +30,6 @@ warnings.filterwarnings('ignore')
 
 class Config:
     # Dataset settings
-    HF_TOKEN = "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"
     HF_DATASET_NAME = "yusufbukarmaina/Beakers1"  # REPLACE WITH YOUR DATASET
     STREAMING = True  # Enable streaming to avoid OOM
     
